@@ -336,8 +336,6 @@ class Stats extends Controller
             $propertyCamel = Str::camel($property);
 
             if (
-                    isset($user->$property) ||
-                    isset($user->$propertyCamel) ||
                     method_exists($user, $property) ||
                     method_exists($user, $propertyCamel)
             ) {
@@ -356,8 +354,6 @@ class Stats extends Controller
             $propertyCamel = Str::camel($property);
 
             if (
-                (isset($user->$property) && $user->$property) ||
-                (isset($user->$propertyCamel) && $user->$propertyCamel) ||
                 (method_exists($user, $property) && $user->$property()) ||
                 (method_exists($user, $propertyCamel) && $user->$propertyCamel())
             ) {
